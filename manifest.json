@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "豆瓣 B 站视频助手",
+  "version": "1.0",
+  "description": "在豆瓣电影/书籍页面推荐 B 站相关热门视频",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://movie.douban.com/*",
+    "https://book.douban.com/*",
+    "https://search.bilibili.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://movie.douban.com/subject/*", "https://book.douban.com/subject/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
